@@ -23,6 +23,7 @@ class LatencyServiceImpl final : public LatencyTest::Service {
         std::chrono::duration_cast<std::chrono::microseconds>(server_receive).count();
     
     response->set_server_receive_time(server_receive_us);
+    response->set_payload(request->payload());
     return Status::OK;
   }
 };
